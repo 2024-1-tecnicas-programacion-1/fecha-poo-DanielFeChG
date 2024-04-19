@@ -1,16 +1,14 @@
 package com.mycompany.fecha.poo;
-
 import java.util.HashMap;
 
 public class Fecha {
-    // TODO: Aquí va el código de la clase fechas
     private int dia;
     private int mes;
     private int annio;
     
     private HashMap<Integer, String> meses;
         
-    public Fecha(int dia, int mes, int annio){
+    public Fecha(int dia, int mes, int annio){ //Constructor; Complejidad temporal: O(1) Tiempo constante.
         this.dia = dia;
         this.mes = mes;
         this.annio = annio;
@@ -29,20 +27,22 @@ public class Fecha {
         meses.put(12, "diciembre");
     }
     
-    public String fechaCorta(){
+    public String fechaCorta(){ //Complejidad temporal: O(1) Tiempo constante.
         return dia+"/"+mes+"/"+annio;
     }
     public boolean validarFecha(){
-        boolean validacion;
-        if(dia>0 || dia<=31){
-            if((mes == 4 || mes == 6 || mes == 9 || mes == 11) && dia>30){
+        boolean validacion = true;
+        if(mes>=1 && mes<=12){ //Complejidad temporal: O(1) Tiempo constante.
+            if(dia>0 || dia<=31){
+                if((mes == 4 || mes == 6 || mes == 9 || mes == 11) && dia>30){
                     validacion = false;
-            }
-            else if(mes == 2 && ((annio % 4 == 0 && dia > 29) || (annio % 4 != 0 && dia > 28))){
-                validacion = false;
+                }
+                else if(mes == 2 && ((annio % 4 == 0 && dia > 29) || (annio % 4 != 0 && dia > 28))){
+                    validacion = false;
+                }
             }
             else{
-                validacion = true;
+                validacion = false;
             }
         }
         else{
@@ -51,10 +51,10 @@ public class Fecha {
         return validacion;
         //return ((dia >= 1 && dia <= 31) && (mes >= 1 && mes <= 12));
     }
-    public String mesLetra(){
+    public String mesLetra(){ //Complejidad temporal: O(1) Tiempo constante.
         return meses.get(mes);
     }
-    public String fechaLarga(){
+    public String fechaLarga(){ //Complejidad temporal: O(1) Tiempo constante.
         return dia+" de "+ meses.get(mes) +" de "+annio;
     }
 }

@@ -2,7 +2,7 @@ package com.mycompany.fecha.poo;
 import java.util.Scanner;
 
 public class Principal {
-    public static void main(String[] args) {
+    public static void main(String[] args) { //Complejidad temporal: O(1) Tiempo constante.
         Scanner sc = new Scanner(System.in);
         Fecha fecha1; // Definición
         System.out.println("Ingrese el día: ");
